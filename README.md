@@ -22,7 +22,7 @@ The file [`maxima.py`](maxima.py) contains a function, `find_maxima`, that finds
     ```
     Does the output correspond to your intuition? Think about a reasonable default behavior in this situation, and meditate on how such a simple function can hide so many complications
 
-4. Implement the “reasonable behavior” you conceived in c), adding a new test.
+4. Implement the “reasonable behavior” you conceived in 3), adding a new test.
    Make sure that your function handles these inputs correctly (include them in the tests):
    ```python
    x = [1, 2, 2, 3, 1]
