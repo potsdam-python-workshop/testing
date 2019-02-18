@@ -20,24 +20,6 @@ def test_sine_wave():
     exp = [16,78]
     assert exp == out
 
-def test_max_on_both_borders():
-    inp = [4, 2, 1, 3, 1, 2]
-    out = find_maxima(inp)
-    exp = [0,3,5]
-    assert exp == out
-
-def test_abs_max_right():
-    inp = [4, 2, 1, 3, 1, 5]
-    out = find_maxima(inp)
-    exp = [0,3,5]
-    assert exp == out
-
-def test_abs_max_left():
-    inp = [4, 2, 1, 3, 1]
-    out = find_maxima(inp)
-    exp = [0,3]
-    assert exp == out
-
 # additional tests for
 # - max on both borders
 #   x = [4, 2, 1, 3, 1, 2]
