@@ -3,6 +3,13 @@ import pytest
 
 from maxima_good import find_maxima_2 as find_maxima
 
+@pytest.mark.xfail
+def test_empty():
+    out = find_maxima([])
+    assert out == [-1]
+
+
+
 test_cases = [
 ([0, 1, 2, 1, 2, 1, 0], [2, 4]),
 ([-i**2 for i in range(-3, 4)], [3]),
