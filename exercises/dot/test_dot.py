@@ -16,6 +16,9 @@ be tricky:
 Finish the test functions below according to their docstrings.
 """
 
+import pytest
+import numpy as np
+
 def test_transposed():
     """Make sure that multiplication of transposed matrices
 
@@ -29,7 +32,13 @@ def test_transposed():
     tranposed matrices gives the same result as the original
     multiplication.
     """
-    ...
+    mat1 = np.random.random([2,3])
+    mat2 = np.random.random([3,2])
+
+    result1 = mat1 @ mat2
+    result2 = (mat2.T @ mat1.T).T
+
+    assert np.allclose(result1, result2)
 
 def test_size_mismatch():
     """Make sure that ValueError is raised on size mismatch
@@ -38,4 +47,8 @@ def test_size_mismatch():
     of the first matrix is equal to the vertical dimension of the other
     one.
     """
-    ...
+    mat1 = np.random.random([2,3])
+    mat2 = np.random.random([4,1])
+
+    with pytest.raises(ValueError):
+        mat1 @ mat2
