@@ -1,7 +1,7 @@
 import numpy as np
 import pytest
 
-from maxima import find_maxima
+from maxima import find_maxima_2 as find_maxima
 
 @pytest.mark.xfail
 def test_empty():
@@ -26,17 +26,6 @@ def test_maxima(inp, exp):
     out = find_maxima(inp)
     assert exp == out
 
-    # then
-    numMax = len(out)
-    for i in range(0,numMax):
-        iE = out[i]
-        if iE == 0:
-            assert test_vec[0] > test_vec[1]
-        elif iE == numel - 1:
-            assert test_vec[numel-1] > test_vec[numel-2]
-        else:
-            assert test_vec[iE-1] < test_vec[iE] and test_vec[iE+1] < test_vec[iE]
-
 def test_randomized():
     seedval = pytest.config.getoption('seed')
     if seedval is None:
@@ -60,8 +49,8 @@ def test_randomized():
     for i in range(0,numMax):
         iE = out[i]
         if iE == 0:
-            assert test_vec[0] > test_vec[1]
+            assert test_vec[0] >= test_vec[1]
         elif iE == numel - 1:
-            assert test_vec[numel-1] > test_vec[numel-2]
+            assert test_vec[numel-1] >= test_vec[numel-2]
         else:
-            assert test_vec[iE-1] < test_vec[iE] and test_vec[iE+1] < test_vec[iE]
+            assert test_vec[iE-1] <= test_vec[iE] and test_vec[iE+1] <= test_vec[iE]
