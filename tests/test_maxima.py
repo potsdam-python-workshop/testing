@@ -1,7 +1,7 @@
 import numpy as np
 import pytest
 
-from maxima_good import find_maxima_2 as find_maxima
+from maxima import find_maxima_2 as find_maxima
 
 test_cases = [
 ([0, 1, 2, 1, 2, 1, 0], [2, 4]),
